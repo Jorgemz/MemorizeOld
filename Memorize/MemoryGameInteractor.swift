@@ -1,5 +1,5 @@
 //
-//  MemoryGame.swift
+//  MemoryGameInteractor.swift
 //  Memorize
 //
 //  Created by 🤨 on 5/06/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MemoryGame<CardContent> where CardContent: Equatable       {
+struct MemoryGameInteractor<CardContent> where CardContent: Equatable       {
   private(set) var cards: Array<Card>
   
   private var indexOfTheOneAndOnlyFaceUpCard: Int?

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EmojiMemoryGameView: View {
-    @ObservedObject var game: EmojiMemoryGame
+    @ObservedObject var game: EmojiMemoryGamePresenter
     
     var body: some View {
         AspectVGrid(items: game.cards, aspectRatio: 2/3,  content: { card in
@@ -19,7 +19,7 @@ struct EmojiMemoryGameView: View {
     }
     
     @ViewBuilder
-    private func cardView(for card: EmojiMemoryGame.Card) -> some View {
+    private func cardView(for card: EmojiMemoryGamePresenter.Card) -> some View {
         if card.isMatched && !card.isFaceUp {
             Rectangle().opacity(0)
         } else {
@@ -33,7 +33,7 @@ struct EmojiMemoryGameView: View {
 }
 
 struct CardView: View {
-  let card: EmojiMemoryGame.Card
+  let card: EmojiMemoryGamePresenter.Card
   
   var body: some View {
     GeometryReader { geometry in
@@ -98,7 +98,7 @@ struct CardView: View {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    let game = EmojiMemoryGame()
+    let game = EmojiMemoryGamePresenter()
     game.choose(game.cards.first!)
     return EmojiMemoryGameView(game: game)
 //      .preferredColorScheme(.dark)
